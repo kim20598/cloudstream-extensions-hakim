@@ -12,7 +12,7 @@ buildscript {
 
     dependencies {
         classpath("com.android.tools.build:gradle:8.7.3")
-        classpath("com.github.recloudstream:gradle:6.0.0") // STABLE plugin version
+        classpath("com.github.recloudstream:gradle:6.0.0") // STABLE version that exists
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
     }
 }
@@ -68,7 +68,7 @@ subprojects {
     dependencies {
         val implementation by configurations
         val cloudstream by configurations
-        cloudstream("com.lagradost:cloudstream3:4.4.6") // STABLE library version
+        cloudstream("com.lagradost:cloudstream3:4.4.6") // Matching stable library
 
         // Other dependencies
         implementation(kotlin("stdlib"))
