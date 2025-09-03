@@ -12,7 +12,7 @@ buildscript {
 
     dependencies {
         classpath("com.android.tools.build:gradle:8.7.3")
-        classpath("com.github.recloudstream.gradle:plugin:pre-release") // UPDATED: Changed to pre-release plugin
+        classpath("com.github.recloudstream:gradle:6.0.0") // STABLE plugin version
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
     }
 }
@@ -46,14 +46,12 @@ subprojects {
             minSdk = 21
             compileSdkVersion(35)
             targetSdk = 35
-
         }
 
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
-
 
         tasks.withType<KotlinJvmCompile> {
             compilerOptions {
@@ -70,7 +68,7 @@ subprojects {
     dependencies {
         val implementation by configurations
         val cloudstream by configurations
-        cloudstream("com.lagradost:cloudstream3:pre-release") // KEEP: This matches the pre-release plugin
+        cloudstream("com.lagradost:cloudstream3:4.4.6") // STABLE library version
 
         // Other dependencies
         implementation(kotlin("stdlib"))
