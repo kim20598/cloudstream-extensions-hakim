@@ -6,7 +6,7 @@ cloudstream {
     // All of these properties are optional, you can safely remove them
 
     description = "Xtream IPTV Live categories, use \"Clone site\" feature and add settings as url,user,pass to pass server details."
-    authors = listOf("KingLucius")
+    authors = listOf("phisher98")
 
     /**
      * Status int as the following:
