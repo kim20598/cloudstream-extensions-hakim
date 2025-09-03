@@ -45,9 +45,9 @@ class XtreamIPTV : MainAPI() {
 
                     if (stream.category_id == cat.category_id) {
                         tempStreamList.add(
-                            LiveSearchResponse(
-                                name = stream.name,
-                                url = Data(
+                            newLiveSearchResponse(
+                                stream.name,
+                                Data(
                                     num = stream.num,
                                     name = stream.name,
                                     stream_type = stream.stream_type,
@@ -62,9 +62,9 @@ class XtreamIPTV : MainAPI() {
                                     direct_source = stream.direct_source,
                                     tv_archive_duration = stream.tv_archive_duration,
                                 ).toJson(),
-                                apiName= this@XtreamIPTV.name,
-                                type= TvType.Live,
-                                posterUrl= stream.stream_icon,
+                                this@XtreamIPTV.name,
+                                TvType.Live,
+                                stream.stream_icon,
                             )
                         )
                     }
@@ -99,13 +99,13 @@ class XtreamIPTV : MainAPI() {
         val parsedData = parseJson<Data>(data)
 
         callback.invoke(
-            ExtractorLink(
-                source = parsedData.name,
-                name = parsedData.name,
-                url = serverUrlWithData + parsedData.stream_id.toString(),
-                referer = "",
-                quality = Qualities.Unknown.value,
-                type = INFER_TYPE,
+            newExtractorLink(
+                parsedData.name,
+                parsedData.name,
+                serverUrlWithData + parsedData.stream_id.toString(),
+                "",
+                Qualities.Unknown.value,
+                INFER_TYPE,
             )
         )
         return true
